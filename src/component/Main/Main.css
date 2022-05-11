@@ -1,0 +1,5 @@
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 120px 240px;
+}

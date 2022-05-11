@@ -1,0 +1,22 @@
+.nav-bar {
+    width: 15vw;
+    display: flex;
+    margin-right: auto;
+    flex-direction: column;
+    position: fixed;
+}
+
+.nav-bar__box {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-bar__box_title {
+    font-size: 20px;
+    font-weight: 600;
+    padding-bottom: 20px;
+}
+
+.nav-bar__price_elem {
+    margin-bottom: 10px;
+}

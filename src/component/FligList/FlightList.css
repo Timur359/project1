@@ -1,0 +1,7 @@
+.flight-list {
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+    padding: 0 20px;
+    margin-left: 340px;
+}
