@@ -42,6 +42,7 @@
     font-size: 20px;
     font-weight: 500;
     padding: 0 40px 5px 40px;
+    margin: 15px 0;
 }
 
 .flight__title_span {
@@ -56,6 +57,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 0 40px 0 40px;
+    margin-bottom: 15px;
 }
 
 .flight__info-box_time {

@@ -114,7 +114,7 @@ const Flight = ({ flight }) => {
       <p className="flight__airplane">
         Рейс выполняет:{flight.carrier.caption}
       </p>
-      <button className="flight__select-button">Выбрать</button>
+      <button className="flight__select-button">ВЫБРАТЬ</button>
     </div>
   );
 };

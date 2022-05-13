@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+
+*,*::after,*::before{
+  margin:0;
+}
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+input {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+button {
+    font-family: 'Ubuntu', sans-serif;
+  }
+
+/*Chrom Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  -ms-overflow-style: none; /*IE and Edge*/
+  scrollbar-width: none; /*Firefox */
+}
