@@ -43,10 +43,10 @@ const Main = () => {
   }, [val1, val2]);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [countriesPerPage] = useState(2);
+  const [flightsPerPage] = useState(2);
 
-  const lastCounryIndex = currentPage * countriesPerPage;
-  const currentFlight = flight.slice(0, lastCounryIndex);
+  const lastFlightIndex = currentPage * flightsPerPage;
+  const currentFlight = flight.slice(0, lastFlightIndex);
 
   const sortPriceMore = () => {
     setFlights(
