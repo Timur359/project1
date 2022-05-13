@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import './NavBar.css';
 
@@ -10,6 +10,8 @@ const NavBar = ({
   setVal2,
   flight,
   setFlights,
+  Transfer,
+  noTransfer,
 }) => {
   /*let sortAirline = flight.sort(
     (a, b) => a.flight.price.total.amount - b.flight.price.total.amount
@@ -62,12 +64,20 @@ const NavBar = ({
       <div className="nav-bar__box nav-bar__filt">
         <h2 className="nav-bar__box_title">Фильтровать</h2>
         <label>
-          <input type="checkbox" className="nav-bar__sort_elem" /> - по
-          возрастанию цены
+          <input
+            type="checkbox"
+            className="nav-bar__sort_elem"
+            onClick={Transfer}
+          />{' '}
+          - 1 пересадка
         </label>
         <label>
-          <input type="checkbox" className="nav-bar__sort_elem" /> - по убыванию
-          цены
+          <input
+            type="checkbox"
+            className="nav-bar__sort_elem"
+            onClick={noTransfer}
+          />{' '}
+          - без пересадок
         </label>
       </div>
 

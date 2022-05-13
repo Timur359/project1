@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import FlightList from '../FligList/FlightList';
 import NavBar from '../NavBar/NavBar';
 
@@ -83,6 +83,18 @@ const Main = () => {
 
   const nextPage = () => setCurrentPage((prev) => prev + 1);
 
+  const handleTransfer = () => {
+    setFlights(
+      [...flight].filter((a) => a.flight.legs[1].segments[1].stops > 0)
+    );
+  };
+
+  const handleNoTransfer = () => {
+    setFlights(
+      [...flight].filter((a) => a.flight.legs[1].segments[1].stops === 0)
+    );
+  };
+
   return (
     <div className="main">
       <NavBar
@@ -97,9 +109,12 @@ const Main = () => {
         airline={airline}
         setFlights={setFlights}
         val2={val2}
+        Transfer={handleNoTransfer}
+        noTransfer={handleTransfer}
       />
       <FlightList setFlights={setFlights} flight={costRangeFlight} />
-      {currentFlight.length == flight.length || costRangeFlight.length == 0 ? (
+      {currentFlight.length === flight.length ||
+      costRangeFlight.length === 0 ? (
         ''
       ) : (
         <button className="main__button" onClick={nextPage}>

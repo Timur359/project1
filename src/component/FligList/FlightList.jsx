@@ -6,7 +6,7 @@ import './FlightList.css';
 const FlightList = ({ flight }) => {
   return (
     <div className="flight-list">
-      {flight.length == 0 ? (
+      {flight.length === 0 ? (
         <h1>По заданным параметрам рейсы отсутствуют</h1>
       ) : (
         flight.map((item) => {
