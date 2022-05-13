@@ -95,9 +95,6 @@ const Main = () => {
     );
   };*/
 
-  console.log(flight.length);
-  console.log(currentFlight.length);
-
   return (
     <div className="main">
       <NavBar
