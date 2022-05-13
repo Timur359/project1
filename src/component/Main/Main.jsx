@@ -50,7 +50,7 @@ const Main = () => {
 
   const sortPriceMore = () => {
     setFlights(
-      [...currentFlight].sort(
+      [...flight].sort(
         (a, b) => a.flight.price.total.amount - b.flight.price.total.amount
       )
     );
@@ -58,7 +58,7 @@ const Main = () => {
 
   const sortPriceSmaller = () => {
     setFlights(
-      [...currentFlight].sort(
+      [...flight].sort(
         (a, b) => b.flight.price.total.amount - a.flight.price.total.amount
       )
     );
@@ -66,7 +66,7 @@ const Main = () => {
 
   const sortPriceTime = () => {
     setFlights(
-      [...currentFlight].sort(
+      [...flight].sort(
         (a, b) =>
           a.flight.legs[0].segments[0].travelDuration -
           b.flight.legs[0].segments[0].travelDuration
@@ -83,17 +83,20 @@ const Main = () => {
 
   const nextPage = () => setCurrentPage((prev) => prev + 1);
 
-  const handleTransfer = () => {
+  /*const handleTransfer = () => {
     setFlights(
-      [...flight].filter((a) => a.flight.legs[1].segments[1].stops > 0)
+      [...currentFlight].filter((a) => a.flight.legs[1].segments[1].stops > 0)
     );
   };
 
   const handleNoTransfer = () => {
     setFlights(
-      [...flight].filter((a) => a.flight.legs[1].segments[1].stops === 0)
+      [...currentFlight].filter((a) => a.flight.legs[1].segments[1].stops === 0)
     );
-  };
+  };*/
+
+  console.log(flight.length);
+  console.log(currentFlight.length);
 
   return (
     <div className="main">
@@ -109,8 +112,8 @@ const Main = () => {
         airline={airline}
         setFlights={setFlights}
         val2={val2}
-        Transfer={handleNoTransfer}
-        noTransfer={handleTransfer}
+        //Transfer={handleNoTransfer}
+        //noTransfer={handleTransfer}
       />
       <FlightList setFlights={setFlights} flight={costRangeFlight} />
       {currentFlight.length === flight.length ||
