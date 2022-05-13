@@ -34,7 +34,7 @@ const NavBar = ({
             type="radio"
             id="filterPrice1"
             name="sort"
-            //onClick={filterMore}
+            onClick={filterMore}
             className="nav-bar__sort_elem"
           />{' '}
           - по возрастанию цены
@@ -44,7 +44,7 @@ const NavBar = ({
             type="radio"
             id="filterPrice2"
             name="sort"
-            //onClick={filterSmaller}
+            onClick={filterSmaller}
             className="nav-bar__sort_elem"
           />{' '}
           - по убыванию цены

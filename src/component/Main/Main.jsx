@@ -83,7 +83,7 @@ const Main = () => {
 
   const nextPage = () => setCurrentPage((prev) => prev + 1);
 
-  /*const handleTransfer = () => {
+  const handleTransfer = () => {
     setFlights(
       [...currentFlight].filter((a) => a.flight.legs[1].segments[1].stops > 0)
     );
@@ -93,7 +93,7 @@ const Main = () => {
     setFlights(
       [...currentFlight].filter((a) => a.flight.legs[1].segments[1].stops === 0)
     );
-  };*/
+  };
 
   return (
     <div className="main">
@@ -109,8 +109,8 @@ const Main = () => {
         airline={airline}
         setFlights={setFlights}
         val2={val2}
-        //Transfer={handleNoTransfer}
-        //noTransfer={handleTransfer}
+        Transfer={handleNoTransfer}
+        noTransfer={handleTransfer}
       />
       <FlightList setFlights={setFlights} flight={costRangeFlight} />
       {currentFlight.length === flight.length ||
