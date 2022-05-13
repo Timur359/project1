@@ -6,9 +6,13 @@ import './FlightList.css';
 const FlightList = ({ flight }) => {
   return (
     <div className="flight-list">
-      {flight.map((item) => {
-        return <Flight key={item.flightToken} flight={item.flight} />;
-      })}
+      {flight.length == 0 ? (
+        <h1>По заданным параметрам рейсы отсутствуют</h1>
+      ) : (
+        flight.map((item) => {
+          return <Flight key={item.flightToken} flight={item.flight} />;
+        })
+      )}
     </div>
   );
 };

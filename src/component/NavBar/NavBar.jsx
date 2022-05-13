@@ -14,14 +14,14 @@ const NavBar = ({
   /*let sortAirline = flight.sort(
     (a, b) => a.flight.price.total.amount - b.flight.price.total.amount
   );
-  console.log(sortAirline);
+  console.log(sortAirline);*/
 
-  let airline = sortAirline.filter(
+  let airline = flight.filter(
     (
       (set) => (f) =>
         !set.has(f.flight.carrier.caption) && set.add(f.flight.carrier.caption)
     )(new Set())
-  );*/
+  );
 
   return (
     <div className="nav-bar">
@@ -78,7 +78,13 @@ const NavBar = ({
           <input
             type="number"
             className="nav-bar__price_elem"
-            onChange={(e) => setVal1(e.target.value)}
+            onChange={(e) => {
+              if (e.target.value < 1) {
+                setVal1(1);
+              } else {
+                setVal1(e.target.value);
+              }
+            }}
             min={100}
             max={10000000000000}
           />
@@ -103,9 +109,8 @@ const NavBar = ({
 
       <div className="nav-bar__box nav-bar__filt">
         <h2 className="nav-bar__box_title">Авиакомпании</h2>
-        {flight.map((item) => {
-          console.log('в процессе реализации');
-          /*return (
+        {airline.map((item) => {
+          return (
             <form key={Math.random()} id="flight">
               <input
                 type="checkbox"
@@ -125,7 +130,7 @@ const NavBar = ({
               {item.flight.carrier.caption} от {item.flight.price.total.amount}{' '}
               р.
             </form>
-          );*/
+          );
         })}
       </div>
     </div>

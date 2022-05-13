@@ -89,7 +89,7 @@ const Main = () => {
         filterMore={sortPriceMore}
         filterSmaller={sortPriceSmaller}
         filterTime={sortPriceTime}
-        flight={val1 >= 0 ? costRangeFlight : currentFlight}
+        flight={flight}
         setVal1={setVal1}
         setVal2={setVal2}
         setSelectedFlights={setFlights}
@@ -98,11 +98,8 @@ const Main = () => {
         setFlights={setFlights}
         val2={val2}
       />
-      <FlightList
-        setFlights={setFlights}
-        flight={val1 >= 0 ? costRangeFlight : currentFlight}
-      />
-      {currentFlight.length == flight.length ? (
+      <FlightList setFlights={setFlights} flight={costRangeFlight} />
+      {currentFlight.length == flight.length || costRangeFlight.length == 0 ? (
         ''
       ) : (
         <button className="main__button" onClick={nextPage}>
