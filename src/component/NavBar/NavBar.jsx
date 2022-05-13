@@ -11,7 +11,7 @@ const NavBar = ({
   flight,
   setFlights,
 }) => {
-  let sortAirline = flight.sort(
+  /*let sortAirline = flight.sort(
     (a, b) => a.flight.price.total.amount - b.flight.price.total.amount
   );
   console.log(sortAirline);
@@ -21,9 +21,7 @@ const NavBar = ({
       (set) => (f) =>
         !set.has(f.flight.carrier.caption) && set.add(f.flight.carrier.caption)
     )(new Set())
-  );
-
-  console.log(airline);
+  );*/
 
   return (
     <div className="nav-bar">
@@ -105,8 +103,9 @@ const NavBar = ({
 
       <div className="nav-bar__box nav-bar__filt">
         <h2 className="nav-bar__box_title">Авиакомпании</h2>
-        {airline.map((item) => {
-          return (
+        {flight.map((item) => {
+          console.log('в процессе реализации');
+          /*return (
             <form key={Math.random()} id="flight">
               <input
                 type="checkbox"
@@ -126,7 +125,7 @@ const NavBar = ({
               {item.flight.carrier.caption} от {item.flight.price.total.amount}{' '}
               р.
             </form>
-          );
+          );*/
         })}
       </div>
     </div>

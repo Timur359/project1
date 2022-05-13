@@ -28,7 +28,6 @@ const Flight = ({ flight }) => {
           Стоимость для одного взрослого пассажира
         </span>
       </div>
-      {console.log(flight.legs[0])}
       <h2 className="flight__title">
         {flight.legs[0].segments[0].departureCity.caption},{' '}
         {flight.legs[0].segments[0].departureAirport.caption}

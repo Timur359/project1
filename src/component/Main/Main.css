@@ -3,3 +3,11 @@
     flex-wrap: wrap;
     flex: 120px 240px;
 }
+
+.main__button {
+    background-color: azure;
+    width: 300px;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 auto;
+}

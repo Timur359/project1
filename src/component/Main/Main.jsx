@@ -42,9 +42,15 @@ const Main = () => {
     sendRequest('GET', requestURL).then((data) => setFlights(data));
   }, [val1, val2]);
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [countriesPerPage] = useState(2);
+
+  const lastCounryIndex = currentPage * countriesPerPage;
+  const currentFlight = flight.slice(0, lastCounryIndex);
+
   const sortPriceMore = () => {
     setFlights(
-      [...flight].sort(
+      [...currentFlight].sort(
         (a, b) => a.flight.price.total.amount - b.flight.price.total.amount
       )
     );
@@ -52,7 +58,7 @@ const Main = () => {
 
   const sortPriceSmaller = () => {
     setFlights(
-      [...flight].sort(
+      [...currentFlight].sort(
         (a, b) => b.flight.price.total.amount - a.flight.price.total.amount
       )
     );
@@ -60,7 +66,7 @@ const Main = () => {
 
   const sortPriceTime = () => {
     setFlights(
-      [...flight].sort(
+      [...currentFlight].sort(
         (a, b) =>
           a.flight.legs[0].segments[0].travelDuration -
           b.flight.legs[0].segments[0].travelDuration
@@ -68,24 +74,14 @@ const Main = () => {
     );
   };
 
-  const costRangeFlight = [...flight].filter((i) => {
+  const costRangeFlight = [...currentFlight].filter((i) => {
     return (
       Number(i.flight.price.total.amount) >= Number(val1) &&
       Number(i.flight.price.total.amount) <= Number(val2)
     );
   });
 
-  /*useEffect(() => {
-    var callback = function (entries, observer) {
-      if (entries[0].isIntersecting) {
-        setFlights([...flight]);
-      }
-    };
-    observer.current = new IntersectionObserver(callback);
-    observer.current.observe(lastElement.current);
-  }, []);
-  const lastElement = useRef();
-  const observer = useRef();*/
+  const nextPage = () => setCurrentPage((prev) => prev + 1);
 
   return (
     <div className="main">
@@ -93,7 +89,7 @@ const Main = () => {
         filterMore={sortPriceMore}
         filterSmaller={sortPriceSmaller}
         filterTime={sortPriceTime}
-        flight={val1 >= 0 ? costRangeFlight : flight}
+        flight={val1 >= 0 ? costRangeFlight : currentFlight}
         setVal1={setVal1}
         setVal2={setVal2}
         setSelectedFlights={setFlights}
@@ -104,12 +100,15 @@ const Main = () => {
       />
       <FlightList
         setFlights={setFlights}
-        flight={val1 >= 0 ? costRangeFlight : flight}
+        flight={val1 >= 0 ? costRangeFlight : currentFlight}
       />
-      <div
-        //ref={lastElement}
-        style={{ height: 20, background: 'red', width: 800 }}
-      />
+      {currentFlight.length == flight.length ? (
+        ''
+      ) : (
+        <button className="main__button" onClick={nextPage}>
+          Показать ещё
+        </button>
+      )}
     </div>
   );
 };
